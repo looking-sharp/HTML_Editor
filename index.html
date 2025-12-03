@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Formatter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/gruvbox-dark.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+  <div id="main-container">
+    <div id="sidebar">
+      <p>Sidebar</p>
+    </div>
+
+    <div id="main-view">
+      
+    <div class="icon-bar">
+      <i class="fa fa-terminal active" title="Toggle Update CSS / JS"></i>
+      <i class="fa fa-search" title="Toggle Update Element Attributes"></i>
+    </div>
+      <div id="preview">
+        <iframe id="preview-frame" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+
+      <div class="bottom-container" id="bottom-container" style="display: flex;">
+        <div class="editor-section">
+          <h3>JavaScript</h3>
+          <textarea id="jsEditor"></textarea>
+        </div>
+        <div class="editor-section">
+          <h3>CSS</h3>
+          <textarea id="cssEditor"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

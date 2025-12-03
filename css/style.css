@@ -1,0 +1,86 @@
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#main-container {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    width: 200px;
+    background-color: #eee;
+    border-right: 2px solid #ccc;
+    padding: 10px;
+}
+
+#main-view {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#preview {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    overflow: auto;
+    background-color: #f9f9f9;
+}
+
+.bottom-container {
+    display: flex;
+    height: 40%;
+    border-top: 2px solid #ccc;
+}
+
+.editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #ccc;
+    padding: 10px;
+}
+
+.editor-section:last-child {
+    border-right: none;
+}
+
+.editor-section h3 {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.icon-bar i {
+  float: left;
+  width: 40px;
+  text-align: center;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar i:hover {
+  background-color: #000;
+}
+
+.icon-bar .active {
+  background-color: #04AA6D;
+}

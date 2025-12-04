@@ -1,0 +1,14 @@
+.insert-div-display {
+    border: #55b0ff 2px dashed;
+    min-height: 50px;
+    border-radius: 10px;
+    background: aliceblue;
+    display: block;
+    align-content: center;
+    text-align: center;
+}
+
+.insert-div-display p i {
+    font-size: 30px;
+    color: #83c5ff;
+}

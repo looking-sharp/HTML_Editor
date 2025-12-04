@@ -77,6 +77,16 @@ textarea {
   font-size: 20px;
 }
 
+.icon-bar .right {
+  float: right;
+  width: 40px;
+  text-align: center;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
 .icon-bar i:hover {
   background-color: #000;
 }

@@ -68,8 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 let includeSearch = false;
+let divFormatterOpen = false;
 
-function updatePreview() {
+function updatePreview(overrideHTML = false) {
     const cssCode = window.cssEditor.getValue();
     const jsCode = window.jsEditor.getValue();
 
@@ -77,7 +78,7 @@ function updatePreview() {
     const doc = iframe.contentDocument || iframe.contentWindow.document;
 
     const previewBody = doc.getElementById("preview-body");
-    if (previewBody) {
+    if (previewBody && overrideHTML === false) {
         htmlBody = previewBody.innerHTML;
     }
 
@@ -97,6 +98,7 @@ function updatePreview() {
             ${includeSearch ? htmlGUIBody : ''}
             <script>${jsCode}<\/script>
             ${includeSearch ? '<script src="js/preview-gui.js"></script>' : ''}
+            ${divFormatterOpen ? '<script src="js/div-formatter.js"></script>' : ''}
         </body>
         </html>
     `);
@@ -115,6 +117,11 @@ function iconLogic(icon) {
     const baseClass = icon.className.split(' ')[1];
     const isActive = icon.classList.contains('active');
 
+    if(baseClass === 'fa-times') {
+        htmlBody = '';
+        updatePreview(overrideHTML=true);
+        return;
+    }
     if (baseClass === 'fa-terminal') {
         const bottomContainer = document.querySelector('#bottom-container');
         if (!bottomContainer) return;
@@ -125,6 +132,23 @@ function iconLogic(icon) {
         icon.classList.toggle('active');
         includeSearch = !includeSearch;
         updatePreview();
+    }
+    if (baseClass === 'fa-clone') {
+        icon.classList.toggle('active');
+        divFormatterOpen = !divFormatterOpen;
+        if (divFormatterOpen) {
+            const terminalIcon = document.querySelector('.fa-terminal');
+            if (terminalIcon.classList.contains('active')) {
+                terminalIcon.classList.remove('active');
+                const bottomContainer = document.querySelector('#bottom-container');
+                if (bottomContainer) bottomContainer.style.display = 'none';
+            }
+            terminalIcon.style.display = 'none';
+        }
+        else {
+            const terminalIcon = document.querySelector('.fa-terminal');
+            terminalIcon.style.display = 'inline-block';
+        }
     }
 }
 

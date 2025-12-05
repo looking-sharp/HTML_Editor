@@ -89,6 +89,7 @@ function updatePreview(overrideHTML = false) {
         <head>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="css/hidden.css">
+            <link rel="stylesheet" href="css/div-formatter.css">
             <style>${cssCode}</style>
         </head>
         <body>
@@ -144,10 +145,12 @@ function iconLogic(icon) {
                 if (bottomContainer) bottomContainer.style.display = 'none';
             }
             terminalIcon.style.display = 'none';
+            updatePreview();
         }
         else {
             const terminalIcon = document.querySelector('.fa-terminal');
             terminalIcon.style.display = 'inline-block';
+            updatePreview();
         }
     }
 }
